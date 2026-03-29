@@ -7,8 +7,8 @@ import Link from 'next/link'
 
 export const ProductCard = ({ product }: { product: typeof shopItems[0] }) => {
   return (
-    <div className="group flex flex-col bg-white rounded-2xl p-4 transition-all duration-300 hover:shadow-lg border border-gray-50">
-      <Link href={`/shop/${product.slug}`} className="relative aspect-4/5 w-full overflow-hidden rounded-xl bg-gray-50">
+    <div className="group flex flex-col bg-white rounded-[10px] p-3 sm:p-4 transition-all duration-300 hover:shadow-lg border border-gray-50 h-full">
+      <Link href={`/shop/${product.slug}`} className="relative aspect-4/5 w-full overflow-hidden rounded-[10px] bg-gray-50">
         <Image
           src={product.image}
           alt={product.name}
@@ -46,10 +46,10 @@ export const ProductCard = ({ product }: { product: typeof shopItems[0] }) => {
         </div>
         
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-lg font-bold text-brand-green">
+          <span className="text-sm md:text-lg font-bold text-brand-green">
             {product.price}
           </span>
-          <button className="rounded-md border border-gray-100 bg-brand-green text-white cursor-pointer px-4 py-2 text-[12px] font-bold transition-all hover:bg-brand-green hover:border-brand-green hover:text-white active:scale-95">
+          <button className="rounded-[10px] border border-gray-100 bg-[#F8F3E9] text-brand-dark cursor-pointer px-1 py-2 sm:px-4 text-[11px] sm:text-[12px] font-bold transition-all hover:bg-brand-green hover:border-brand-green hover:text-white active:scale-95">
             Add to Cart
           </button>
         </div>
@@ -123,7 +123,7 @@ export const ShopGrid = () => {
       {/* Grid */}
       {paginatedProducts.length > 0 ? (
         <>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3">
             {paginatedProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}

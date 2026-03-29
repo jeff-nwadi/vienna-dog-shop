@@ -115,10 +115,10 @@ export default function ProductDetailPage() {
           <span className="text-brand-green font-medium">{product.name}</span>
         </nav>
 
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-24">
           {/* Gallery Side */}
-          <div className="flex flex-col gap-6">
-            <div className="relative aspect-square overflow-hidden rounded-[10px] bg-gray-50 border border-gray-100">
+          <div className="flex flex-col gap-6 lg:col-span-5">
+            <div className="relative aspect-square overflow-hidden rounded-[10px] bg-gray-50 border border-gray-100 max-w-md lg:max-w-none mx-auto lg:mx-0 w-full">
               <Image
                 src={images[activeImage]}
                 alt={product.name}
@@ -127,7 +127,7 @@ export default function ProductDetailPage() {
                 priority
               />
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 gap-4 max-w-md lg:max-w-none mx-auto lg:mx-0 w-full">
               {images.map((img, idx) => (
                 <button
                   key={idx}
@@ -143,7 +143,7 @@ export default function ProductDetailPage() {
           </div>
 
           {/* Info Side */}
-          <div className="flex flex-col">
+          <div className="flex flex-col lg:col-span-7">
             {product.badge && (
               <span className="mb-4 inline-block w-fit rounded-full bg-brand-green/5 px-4 py-1.5 text-[12px] font-bold uppercase tracking-wider text-brand-green">
                 {product.badge}

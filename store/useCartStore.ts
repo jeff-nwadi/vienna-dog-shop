@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import Product from"@/public/images/Product(1).svg"
 
 export interface CartItem {
   id: number
@@ -30,7 +31,7 @@ const MOCK_ITEMS: CartItem[] = [
     numericPrice: 45.00,
     quantity: 1,
     size: "5 lb",
-    image: "https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&q=80&w=300",
+    image: Product,
   },
   {
     id: 4,

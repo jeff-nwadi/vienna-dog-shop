@@ -1,44 +1,72 @@
+"use client"
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import HeroDog from '../public/images/Hero Dog.svg'
-import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+
+const HERO_IMAGES = [
+  {
+    src: '/images/hero_1.png',
+    alt: 'Golden Retriever in a sun-drenched field'
+  },
+  {
+    src: '/images/hero_2.png',
+    alt: 'Elegant Poodle in a wildflower meadow'
+  }
+]
 
 export const Hero = () => {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % HERO_IMAGES.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
-    <section className="relative h-[600px] w-full overflow-hidden px-6 lg:px-16">
-      {/* Background Image Layer */}
-      <div className="absolute inset-0 -z-10 h-full w-full">
-        <Image
-          src={HeroDog}
-          alt="Dogs in a meadow"
-          fill
-          priority
-          className="object-cover object-center brightness-90 transition-transform duration-700 hover:scale-105"
-        />
-        {/* Subtle Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-r from-black/20 to-transparent" />
+    <section className="relative h-[500px] w-full overflow-hidden lg:h-[650px] bg-white">
+      {/* Background Slider */}
+      <div className="absolute inset-0 z-0">
+        {HERO_IMAGES.map((img, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out ${
+              currentIndex === idx ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              priority={idx === 0}
+              className="object-cover object-center"
+            />
+          </div>
+        ))}
+        {/* Cinematic Cream Fade Overlay */}
+        <div className="absolute inset-0 bg-linear-to-r from-[#F9F3DC] via-[#F9F3DC]/40 to-transparent lg:from-[#F9F3DC] lg:via-[#F9F3DC]/20 lg:to-transparent" />
       </div>
 
       {/* Content Container */}
-      <div className="mx-auto flex h-full max-w-7xl items-center">
-        {/* Floating Card */}
-        <div className="w-full max-w-[480px] rounded-2xl bg-white/95 p-8 shadow-2xl backdrop-blur-sm lg:p-12">
-          <span className="mb-4 block text-[10px] md:text-[13px] font-bold uppercase tracking-widest text-brand-green">
-            Premium care for dogs
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-6 lg:px-16">
+        <div className="z-10 w-full max-w-2xl animate-fade-in">
+          <span className="mb-4 block text-[11px] font-bold uppercase tracking-[0.2em] text-[#C7A17A] md:text-[13px]">
+            Best for your best friend
           </span>
-          <h1 className="mb-6 font-heading text-2xl font-bold leading-wide text-brand-dark lg:text-4xl">
-              Premium Care for Your Best Friend
+          <h1 className="mb-6 font-heading text-4xl font-bold leading-[1.1] text-brand-dark md:text-5xl lg:text-7xl">
+            Premium Care for <br className="hidden lg:block" /> Your Pet
           </h1>
-          <p className="mb-8 text-md md:text-lg leading-relaxed text-brand-dark/80 ">
-            Discover our curated selection of high-quality
-            food, toys, and grooming essentials for the dog
-            you love.
+          <p className="mb-10 max-w-lg text-[15px] leading-relaxed text-gray-500 md:text-lg">
+            Discover our curated selection of high-quality food, cozy beds, and grooming essentials designed to keep your dog happy and healthy.
           </p>
-          <div className="flex flex-wrap items-center gap-6">
-            <button className="flex items-center gap-3 rounded-md bg-brand-green px-8 py-4 text-[15px] font-semibold text-white transition-all hover:bg-brand-dark hover:shadow-lg active:scale-95">
-              Shop Now
-              <ArrowRight />
-            </button>
-            
+          <div className="flex items-center gap-6">
+            <Link 
+              href="/shop"
+              className="rounded-[10px] bg-brand-dark px-10 py-5 text-[15px] font-bold text-white transition-all hover:bg-brand-green hover:shadow-xl active:scale-95"
+            >
+              Shop Collection
+            </Link>
           </div>
         </div>
       </div>
