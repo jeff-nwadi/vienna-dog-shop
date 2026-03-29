@@ -10,27 +10,27 @@ const categories = [
   {
     name: 'Food',
     image: Food,
-    href: '#',
+    href: '/shop?category=Food',
   },
   {
     name: 'Grooming',
     image: Grooming,
-    href: '#',
+    href: '/shop?category=Grooming',
   },
   {
     name: 'Toys',
     image: Toys,
-    href: '#',
+    href: '/shop?category=Toys',
   },
   {
     name: 'Beds',
     image: Bed,
-    href: '#',
+    href: '/shop?category=Beds',
   },
   {
     name: 'Puppies',
     image: Puppies,
-    href: '#',
+    href: '/shop?category=Puppies',
   },
 ]
 

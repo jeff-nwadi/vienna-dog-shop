@@ -70,11 +70,17 @@ export const ShopGrid = () => {
   const pathname = usePathname()
   
   const category = searchParams.get('category')
+  const searchQuery = searchParams.get('search')?.toLowerCase() || ''
   const page = parseInt(searchParams.get('page') || '1', 10)
 
-  const filteredProducts = category 
-    ? shopItems.filter(item => item.category === category)
-    : shopItems
+  const filteredProducts = shopItems.filter(item => {
+    const matchesCategory = !category || item.category === category
+    const matchesSearch = !searchQuery || 
+      item.name.toLowerCase().includes(searchQuery) || 
+      item.brand.toLowerCase().includes(searchQuery)
+    
+    return matchesCategory && matchesSearch
+  })
 
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
   const paginatedProducts = filteredProducts.slice(
@@ -99,7 +105,9 @@ export const ShopGrid = () => {
             <span className="text-brand-green font-bold uppercase tracking-widest text-[10px]">Shop</span>
           </div>
           <h1 className="font-heading tracking-wide text-xl font-bold text-brand-dark">
-            {category ? `${category} Products` : 'All Products'}
+            {searchQuery 
+              ? `Results for "${searchParams.get('search')}"` 
+              : category ? `${category} Products` : 'All Products'}
           </h1>
         </div>
         

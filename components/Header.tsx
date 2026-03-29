@@ -3,7 +3,8 @@
 import { Search, ShoppingBag, User, Menu, X, ChevronDown } from 'lucide-react'
 import { Dog } from 'lucide-react'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { useCartStore } from '@/store/useCartStore'
 
 export const Header = () => {
@@ -15,6 +16,27 @@ export const Header = () => {
   const [isShopOpen, setIsShopOpen] = useState(false)
   const [isMobileGroomingOpen, setIsMobileGroomingOpen] = useState(false)
   const [isMobileShopOpen, setIsMobileShopOpen] = useState(false)
+  
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [searchQuery, setSearchQuery] = useState('')
+  const searchInputRef = useRef<HTMLInputElement>(null)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (isSearchOpen && searchInputRef.current) {
+      searchInputRef.current.focus()
+    }
+  }, [isSearchOpen])
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      router.push(`/shop?search=${encodeURIComponent(searchQuery.trim())}`)
+      setIsSearchOpen(false)
+      setSearchQuery('')
+      setIsMenuOpen(false)
+    }
+  }
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -104,9 +126,28 @@ export const Header = () => {
         {/* Icons & Mobile Toggle */}
         <div className="flex items-center gap-4 text-brand-dark md:gap-8">
           <div className="hidden items-center gap-6 md:flex">
-            <button className="transition-transform hover:scale-110 cursor-pointer">
-              <Search size={20} />
-            </button>
+            <div className="relative flex items-center">
+              <div className={`flex items-center transition-all duration-300 ${
+                isSearchOpen ? 'w-[240px] opacity-100' : 'w-0 opacity-0 overflow-hidden'
+              }`}>
+                <form onSubmit={handleSearchSubmit} className="w-full">
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    placeholder="Search products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="h-10 w-full rounded-full border border-gray-100 bg-gray-50 px-4 text-[13px] outline-none focus:border-brand-green/30 focus:ring-4 focus:ring-brand-green/5"
+                  />
+                </form>
+              </div>
+              <button 
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                className="ml-2 transition-transform hover:scale-110 cursor-pointer"
+              >
+                {isSearchOpen ? <X size={20} className="text-gray-400" /> : <Search size={20} />}
+              </button>
+            </div>
             <Link href="/login" className="transition-transform hover:scale-110">
               <User size={20} />
             </Link>
@@ -179,13 +220,27 @@ export const Header = () => {
                 )
               })}
             </ul>
-            <div className="mt-auto flex justify-around border-t border-gray-100 pt-8 text-brand-dark md:hidden">
-              <button onClick={() => setIsMenuOpen(false)}>
-                <User size={24} />
-              </button>
-              <button onClick={() => setIsMenuOpen(false)}>
-                <Search size={24} />
-              </button>
+            <div className="mt-auto flex flex-col gap-6 border-t border-gray-100 pt-8 md:hidden">
+              <form onSubmit={handleSearchSubmit} className="w-full">
+                <div className="relative flex items-center">
+                  <input
+                    type="text"
+                    placeholder="Search products..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="h-12 w-full rounded-xl border border-gray-100 bg-gray-50 px-10 text-[15px] outline-none"
+                  />
+                  <Search size={18} className="absolute left-3 text-gray-400" />
+                </div>
+              </form>
+              <div className="flex justify-around text-brand-dark">
+                <Link href="/login" onClick={() => setIsMenuOpen(false)}>
+                  <User size={24} />
+                </Link>
+                <Link href="/cart" onClick={() => setIsMenuOpen(false)}>
+                   <ShoppingBag size={24} />
+                </Link>
+              </div>
             </div>
           </nav>
         </div>
