@@ -9,6 +9,7 @@ import Product4 from "@/public/images/Product(3).svg"
 const products = [
   {
     id: 1,
+    slug: "organic-beef-recipe",
     name: "Classic Forest Green Leather Collar",
     brand: "VIENNA HERITAGE",
     price: "$45.00",
@@ -19,6 +20,7 @@ const products = [
   },
   {
     id: 2,
+    slug: "wild-salmon-grain-free-kibble",
     name: "Wild Salmon Grain-Free Kibble (5kg)",
     brand: "NATURE'S DIET",
     price: "$38.50",
@@ -28,6 +30,7 @@ const products = [
   },
   {
     id: 3,
+    slug: "indestructible-plush-duck-toy",
     name: "Indestructible Plush Duck Toy",
     brand: "PLAYFUL PAWS",
     price: "$14.00",
@@ -38,6 +41,7 @@ const products = [
   },
   {
     id: 4,
+    slug: "orthopedic-memory-foam-bed",
     name: "Orthopedic Memory Foam Bed - Large",
     brand: "SLEEPY DREAMS",
     price: "$120.00",
@@ -50,7 +54,7 @@ const products = [
 const ProductCard = ({ product }: { product: typeof products[0] }) => {
   return (
     <div className="group flex flex-col">
-      <div className="relative aspect-4/5 w-full overflow-hidden rounded-lg bg-gray-100">
+      <Link href={`/shop/${product.slug}`} className="relative aspect-4/5 w-full overflow-hidden rounded-lg bg-gray-100">
         <Image
           src={product.image}
           alt={product.name}
@@ -62,15 +66,17 @@ const ProductCard = ({ product }: { product: typeof products[0] }) => {
             {product.badge}
           </div>
         )}
-      </div>
+      </Link>
       
       <div className="mt-3 flex flex-col gap-0.5 md:mt-4 md:gap-1">
         <span className="text-[9px] font-bold tracking-widest text-gray-400 uppercase md:text-[10px]">
           {product.brand}
         </span>
-        <h3 className="line-clamp-2 min-h-10 text-[13px] font-bold leading-tight text-brand-dark transition-colors group-hover:text-brand-green md:text-[15px]">
-          {product.name}
-        </h3>
+        <Link href={`/shop/${product.slug}`}>
+          <h3 className="line-clamp-2 min-h-10 text-[13px] font-bold leading-tight text-brand-dark transition-colors group-hover:text-brand-green md:text-[15px]">
+            {product.name}
+          </h3>
+        </Link>
         
         <div className="mt-1 flex items-center gap-1 md:mt-2">
           <div className="flex">
