@@ -15,7 +15,7 @@ export default function CartPage() {
     <div className="flex min-h-screen flex-col bg-white">
       <main className="flex-1 px-6 py-12 md:px-16 lg:py-16">
         <div className="mx-auto max-w-7xl">
-          <h1 className="mb-10 font-heading text-xl font-bold tracking-tight text-brand-dark md:text-2xl">
+          <h1 className="mb-10 font-heading text-xl font-bold tracking-wide text-brand-dark md:text-2xl">
             Your Shopping Cart
           </h1>
 

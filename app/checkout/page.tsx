@@ -52,7 +52,7 @@ export default function CheckoutPage() {
             <div className="flex-1 space-y-16">
               {/* 1. Billing & Shipping */}
               <div className="rounded-[2.5rem] border border-gray-100 bg-white p-8 shadow-sm md:p-12">
-                <h2 className="mb-10 font-heading text-[18px] font-bold tracking-tight text-brand-dark md:text-xl">
+                <h2 className="mb-10 font-heading text-[18px] font-bold tracking-wide text-brand-dark md:text-xl">
                   Billing & Shipping
                 </h2>
 
@@ -118,7 +118,7 @@ export default function CheckoutPage() {
 
               {/* 2. Payment Method */}
               <div className="rounded-[2.5rem] border border-gray-100 bg-white p-8 shadow-sm md:p-12">
-                <h2 className="mb-10 font-heading text-[18px] font-bold tracking-tight text-brand-dark md:text-xl">
+                <h2 className="mb-10 font-heading text-[18px] font-bold tracking-wide text-brand-dark md:text-xl">
                   Payment Method
                 </h2>
 
@@ -133,7 +133,7 @@ export default function CheckoutPage() {
                       <div className={`h-4 w-4 rounded-full border-2 ${
                         paymentMethod === 'card' ? 'border-brand-green bg-brand-green' : 'border-gray-300 bg-white'
                       }`} />
-                      <span className="text-[15px] font-bold tracking-tight">Card ending in 4242</span>
+                      <span className="text-[15px] font-bold tracking-wide">Card ending in 4242</span>
                     </div>
                     <CreditCard size={20} className="text-gray-400" />
                   </button>
@@ -148,7 +148,7 @@ export default function CheckoutPage() {
                       <div className={`h-4 w-4 rounded-full border-2 ${
                         paymentMethod === 'paypal' ? 'border-brand-green bg-brand-green' : 'border-gray-300 bg-white'
                       }`} />
-                      <span className="text-[15px] font-bold tracking-tight">PayPal</span>
+                      <span className="text-[15px] font-bold tracking-wide">PayPal</span>
                     </div>
                     <Wallet size={20} className="text-gray-400" />
                   </button>
@@ -159,7 +159,7 @@ export default function CheckoutPage() {
             {/* Order Summary Sidebar */}
             <div className="lg:w-[480px]">
               <div className="rounded-[2.5rem] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC] md:p-12">
-                <h2 className="mb-8 font-heading text-[18px] font-bold tracking-tight text-brand-dark">
+                <h2 className="mb-8 font-heading text-[18px] font-bold tracking-wide text-brand-dark">
                   Your Order
                 </h2>
 

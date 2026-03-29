@@ -28,7 +28,7 @@ export const ContactInfo = () => {
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-brand-green shadow-sm">
                 <Icon size={18} />
               </div>
-              <span className="text-[13px] md:text-[14px] font-medium text-brand-dark tracking-tight leading-relaxed">
+              <span className="text-[13px] md:text-[14px] font-medium text-brand-dark tracking-wide leading-relaxed">
                 {item.label}
               </span>
             </div>

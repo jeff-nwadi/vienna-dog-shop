@@ -27,7 +27,7 @@ export const EmptyState = ({ title, description, showSearch = true }: EmptyState
         </div>
       </div>
 
-      <h2 className="mb-4 font-heading text-xl font-bold tracking-tight text-brand-dark md:text-2xl">
+      <h2 className="mb-4 font-heading text-xl font-bold tracking-wide text-brand-dark md:text-2xl">
         {title}
       </h2>
       <p className="mb-10 max-w-sm text-[14px] leading-relaxed text-gray-400">

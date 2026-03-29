@@ -13,7 +13,7 @@ export const BookingSectionHeader = ({ number, title }: BookingSectionHeaderProp
       <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-dark text-white text-[14px] font-bold">
         {number}
       </div>
-      <h2 className="font-heading text-xl font-bold tracking-tight text-brand-dark">
+      <h2 className="font-heading text-xl font-bold tracking-wide text-brand-dark">
         {title}
       </h2>
     </div>

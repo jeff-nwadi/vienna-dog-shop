@@ -12,7 +12,7 @@ export const SalonBookingSummary = () => {
 
   return (
     <div className="rounded-[2rem] bg-[#F9F3DC]/40 p-10  border border-[#F9F3DC]">
-      <h3 className="mb-10 text-xl font-bold tracking-tight text-brand-dark">Booking Summary</h3>
+      <h3 className="mb-10 text-xl font-bold tracking-wide text-brand-dark">Booking Summary</h3>
       
       <div className="flex flex-col gap-6 border-b border-brand-dark/5 pb-8">
         <div className="flex justify-between text-[14px]">

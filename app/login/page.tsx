@@ -10,7 +10,7 @@ export default function LoginPage() {
         {/* Left Side: Login */}
         <div className="flex-1 p-8 md:p-12 lg:p-16">
           <div className="mb-10 text-center lg:text-left">
-            <h1 className="mb-3 font-heading text-2xl font-bold tracking-tight text-brand-dark md:text-3xl">
+            <h1 className="mb-3 font-heading text-2xl font-bold tracking-wide text-brand-dark md:text-3xl">
               Welcome Back
             </h1>
             <p className="text-[14px] leading-relaxed text-gray-400">
@@ -71,7 +71,7 @@ export default function LoginPage() {
         {/* Right Side: Signup */}
         <div className="flex-1 bg-[#F9F3DC]/40 p-8 md:p-12 lg:p-16">
           <div className="mb-10 text-center lg:text-left">
-            <h2 className="mb-3 font-heading text-2xl font-bold tracking-tight text-brand-dark md:text-3xl">
+            <h2 className="mb-3 font-heading text-2xl font-bold tracking-wide text-brand-dark md:text-3xl">
               New Here?
             </h2>
             <p className="text-[14px] leading-relaxed text-gray-500">
