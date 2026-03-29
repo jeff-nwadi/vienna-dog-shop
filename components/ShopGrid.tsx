@@ -58,16 +58,35 @@ export const ProductCard = ({ product }: { product: typeof shopItems[0] }) => {
   )
 }
 
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
 import { EmptyState } from '@/components/EmptyState'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+
+const ITEMS_PER_PAGE = 6
 
 export const ShopGrid = () => {
   const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
+  
   const category = searchParams.get('category')
+  const page = parseInt(searchParams.get('page') || '1', 10)
 
   const filteredProducts = category 
     ? shopItems.filter(item => item.category === category)
     : shopItems
+
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE)
+  const paginatedProducts = filteredProducts.slice(
+    (page - 1) * ITEMS_PER_PAGE,
+    page * ITEMS_PER_PAGE
+  )
+
+  const handlePageChange = (newPage: number) => {
+    const params = new URLSearchParams(searchParams)
+    params.set('page', newPage.toString())
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+  }
 
   return (
     <div className="flex-1">
@@ -94,12 +113,51 @@ export const ShopGrid = () => {
       </div>
       
       {/* Grid */}
-      {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+      {paginatedProducts.length > 0 ? (
+        <>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {paginatedProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="mt-16 flex items-center justify-center gap-4">
+              <button 
+                onClick={() => handlePageChange(page - 1)}
+                disabled={page === 1}
+                className="flex h-10 w-10 items-center justify-center rounded-md border border-gray-100 text-gray-400 transition-all hover:bg-brand-green hover:text-white disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-400"
+                aria-label="Previous page"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i + 1}
+                  onClick={() => handlePageChange(i + 1)}
+                  className={`h-10 w-10 rounded-md text-[14px] font-bold transition-all ${
+                    (i + 1) === page 
+                      ? 'bg-brand-green text-white shadow-md' 
+                      : 'border border-gray-100 bg-white text-gray-400 hover:border-brand-green hover:text-brand-green'
+                  }`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+              
+              <button 
+                onClick={() => handlePageChange(page + 1)}
+                disabled={page === totalPages}
+                className="flex h-10 w-10 items-center justify-center rounded-md border border-gray-100 text-gray-400 transition-all hover:bg-brand-green hover:text-white disabled:opacity-50 disabled:hover:bg-transparent disabled:hover:text-gray-400"
+                aria-label="Next page"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <EmptyState 
           title="No Products Found" 

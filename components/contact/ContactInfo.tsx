@@ -5,15 +5,14 @@ import { MapPin, Phone, Mail } from 'lucide-react'
 import Image from 'next/image'
 
 const contactItems = [
-  { icon: MapPin, label: '123 Bark Avenue, 1010 Vienna' },
-  { icon: Phone, label: '+43 1 234 5678' },
-  { icon: Mail, label: 'hello@viennadogshop.com' },
+  { icon: MapPin, label: 'Grenzackerstrasse 7/ 19/ R1, 1100 Wien, Austria' },
+  { icon: Phone, label: '+43 676 309 80 63 (Brigitte)' },
+  { icon: Mail, label: 'info@vienna-dog-shop.at' },
 ]
 
 const businessHours = [
-  { day: 'Mon-Fri', hours: '09:00 - 18:00' },
-  { day: 'Saturday', hours: '10:00 - 16:00' },
-  { day: 'Sunday', hours: 'Closed' },
+  { day: 'Mon-Fri', hours: '12:00 - 19:00' },
+  { day: 'Sat-Sun', hours: 'Closed' },
 ]
 
 export const ContactInfo = () => {

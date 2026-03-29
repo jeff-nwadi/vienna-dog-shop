@@ -1,11 +1,33 @@
-'use client'
-
+"use client"
 import { Star } from 'lucide-react'
+import { useSearchParams, useRouter, usePathname } from 'next/navigation'
+import { useCallback } from 'react'
 
 const categories = ['Food', 'Grooming', 'Toys', 'Beds', 'Puppies']
 const brands = ["Nature's Best", 'Kong', 'Paw Ritual', 'RuffWear']
 
 export const ShopSidebar = () => {
+  const searchParams = useSearchParams()
+  const router = useRouter()
+  const pathname = usePathname()
+  
+  const currentCategory = searchParams.get('category')
+
+  const handleCategoryClick = useCallback((category: string) => {
+    const params = new URLSearchParams(searchParams)
+    
+    if (currentCategory === category) {
+      params.delete('category')
+    } else {
+      params.set('category', category)
+    }
+    
+    // Always reset to page 1 when changing filters
+    params.delete('page')
+    
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+  }, [searchParams, currentCategory, pathname, router])
+
   return (
     <aside className="w-full shrink-0 flex flex-col gap-10 lg:w-[280px]">
       {/* Categories */}
@@ -13,16 +35,28 @@ export const ShopSidebar = () => {
         <h3 className="mb-6 text-[16px] font-bold text-brand-dark">Categories</h3>
         <div className="flex flex-col gap-4 bg-[#F6EFD9] p-4 text-brand-dark rounded-2xl">
           {categories.map((cat) => (
-            <label key={cat} className="flex items-center gap-3 cursor-pointer group">
-              <input
-                type="checkbox"
-                className="h-5 w-5 rounded border-gray-200 text-brand-green focus:ring-brand-green"
-                defaultChecked={cat === 'Food'}
-              />
-              <span className="text-[15px] text-gray-400 group-hover:text-brand-green transition-colors">
+            <button 
+              key={cat} 
+              onClick={() => handleCategoryClick(cat)}
+              className="flex items-center gap-3 cursor-pointer group text-left"
+            >
+              <div className={`h-5 w-5 rounded border-2 flex items-center justify-center transition-all ${
+                currentCategory === cat 
+                  ? 'border-brand-green bg-brand-green text-white' 
+                  : 'border-gray-200 bg-white'
+              }`}>
+                {currentCategory === cat && (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" className="h-3 w-3">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                )}
+              </div>
+              <span className={`text-[15px] transition-colors ${
+                currentCategory === cat ? 'text-brand-green font-bold' : 'text-gray-400 group-hover:text-brand-green'
+              }`}>
                 {cat}
               </span>
-            </label>
+            </button>
           ))}
         </div>
       </div>

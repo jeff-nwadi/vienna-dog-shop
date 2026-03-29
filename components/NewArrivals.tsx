@@ -120,7 +120,7 @@ export const NewArrivals = () => {
         
         <div className="mt-16 flex justify-center">
           <Link 
-            href="#" 
+            href="/shop" 
             className="rounded-md border border-brand-green px-8 py-3 text-[15px] font-bold text-brand-green transition-all hover:bg-brand-green hover:text-white"
           >
             View All Products

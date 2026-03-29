@@ -1,9 +1,9 @@
+import React, { Suspense } from 'react'
 import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { Newsletter } from "@/components/Newsletter"
 import { ShopSidebar } from "@/components/ShopSidebar"
 import { ShopGrid } from "@/components/ShopGrid"
-import { Pagination } from "@/components/Pagination"
 
 export default function ShopPage() {
   return (
@@ -19,10 +19,9 @@ export default function ShopPage() {
             {/* Main Content Area */}
             <div className="flex-1">
               {/* Product Grid & Sorting Header */}
-              <ShopGrid />
-              
-              {/* Pagination */}
-              <Pagination currentPage={2} />
+              <Suspense fallback={<div className="flex h-64 items-center justify-center text-gray-400">Loading products...</div>}>
+                <ShopGrid />
+              </Suspense>
             </div>
             
             {/* Sidebar - Mobile/Tablet (Optional: could be a drawer) */}

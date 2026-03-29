@@ -70,15 +70,15 @@ export const Footer = () => {
             <div className="flex flex-col gap-5 text-[15px] text-gray-500">
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-brand-green" />
-                <span>123 Bark Avenue, Suite 100<br />Vienna, VA 22180</span>
+                <span>Grenzackerstrasse 7/ 19/ R1<br />1100 Wien, Austria</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="shrink-0 text-brand-green" />
-                <span>+1 (555) 123-4567</span>
+                <span>0043 (0)676 309 80 63</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="shrink-0 text-brand-green" />
-                <span>hello@viennadogshop.com</span>
+                <span>info@vienna-dog-shop.at</span>
               </div>
             </div>
             <div className="mt-4 flex flex-col gap-3 text-[14px]">
@@ -89,7 +89,13 @@ export const Footer = () => {
         </div>
         
         <div className="mt-16 border-t border-gray-100 pt-8 text-center text-[13px] text-gray-400">
-          <p>© {new Date().getFullYear()} Vienna Dog Shop. All rights reserved.</p>
+          <div className="mb-4 flex flex-col gap-1 items-center">
+            <p className="font-bold text-gray-500 uppercase tracking-widest text-[10px] mb-1">Impressum / Legal Info</p>
+            <p>Fa. Brigitte Holzmann &bull; Mag.Dr. Christine Pörner</p>
+            <p>Grenzackerstrasse 7/ 19/ R1, 1100 Wien, Austria</p>
+            <p>UID: ATU57377234</p>
+          </div>
+          <p>&copy; {new Date().getFullYear()} Vienna Dog Shop. All rights reserved.</p>
         </div>
       </div>
     </footer>
