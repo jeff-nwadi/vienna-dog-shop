@@ -8,7 +8,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl">
           {/* Header */}
           <div className="mb-12 max-w-2xl md:mb-20">
-            <h1 className="mb-4 font-heading text-2xl font-bold tracking-wide text-brand-dark md:text-5xl lg:text-6xl">
+            <h1 className="mb-4 font-heading text-2xl font-bold tracking-wide text-brand-dark md:text-3xl lg:text-4xl">
               Get in Touch
             </h1>
             <p className="text-[14px] md:text-lg leading-relaxed text-gray-500">

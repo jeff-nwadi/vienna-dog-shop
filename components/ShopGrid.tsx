@@ -58,7 +58,17 @@ export const ProductCard = ({ product }: { product: typeof shopItems[0] }) => {
   )
 }
 
+import { useSearchParams } from 'next/navigation'
+import { EmptyState } from '@/components/EmptyState'
+
 export const ShopGrid = () => {
+  const searchParams = useSearchParams()
+  const category = searchParams.get('category')
+
+  const filteredProducts = category 
+    ? shopItems.filter(item => item.category === category)
+    : shopItems
+
   return (
     <div className="flex-1">
       {/* Search/Sort Header */}
@@ -67,10 +77,10 @@ export const ShopGrid = () => {
           <div className="mb-2 flex items-center gap-2 text-[13px] text-gray-400">
             <Link href="/" className="hover:text-brand-green">Home</Link>
             <span>/</span>
-            <span className="text-brand-green font-medium">Shop</span>
+            <span className="text-brand-green font-bold uppercase tracking-widest text-[10px]">Shop</span>
           </div>
-          <h1 className="font-heading text-xl font-bold text-brand-dark">
-            All Products
+          <h1 className="font-heading tracking-wide text-xl font-bold text-brand-dark">
+            {category ? `${category} Products` : 'All Products'}
           </h1>
         </div>
         
@@ -84,11 +94,18 @@ export const ShopGrid = () => {
       </div>
       
       {/* Grid */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {shopItems.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {filteredProducts.length > 0 ? (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      ) : (
+        <EmptyState 
+          title="No Products Found" 
+          description="We couldn't find any products matching your search criteria. Try a different category or search term."
+        />
+      )}
     </div>
   )
 }

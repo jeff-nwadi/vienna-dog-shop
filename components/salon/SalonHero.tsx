@@ -15,7 +15,7 @@ export const SalonHero = () => {
       <div className="absolute inset-0 bg-brand-green/40 backdrop-blur-[2px]" />
       <div className="absolute inset-0 flex flex-col items-start justify-center px-12 md:px-20">
         <div className="max-w-2xl">
-          <h1 className="mb-6 font-heading text-5xl font-bold leading-tight text-white lg:text-7xl">
+          <h1 className="mb-6 font-heading text-3xl font-bold leading-wide text-white lg:text-4xl">
             Grooming Salon
           </h1>
           <p className="text-lg leading-relaxed text-white/90">

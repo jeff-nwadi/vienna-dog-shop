@@ -24,7 +24,7 @@ export const GroomingProcess = () => {
   return (
     <section className="bg-[#F6EFD9] py-20 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-16 text-center">
-        <h2 className="mb-20 font-heading text-4xl font-bold text-brand-dark lg:text-5xl">The Grooming Journey</h2>
+        <h2 className="mb-20 font-heading text-3xl font-bold text-brand-dark lg:text-3xl text-center">The Grooming Journey</h2>
         
         <div className="relative grid grid-cols-1 gap-16 lg:grid-cols-3 lg:gap-12">
           {/* Connecting arrow/line - Desktop only */}

@@ -25,8 +25,8 @@ export const Hero = () => {
           <span className="mb-4 block text-[10px] md:text-[13px] font-bold uppercase tracking-widest text-brand-green">
             Premium care for dogs
           </span>
-          <h1 className="mb-6 font-heading text-3xl font-bold leading-tight text-brand-dark lg:text-5xl">
-            Premium Care for Your Best Friend
+          <h1 className="mb-6 font-heading text-2xl font-bold leading-wide text-brand-dark lg:text-4xl">
+              Premium Care for Your Best Friend
           </h1>
           <p className="mb-8 text-md md:text-lg leading-relaxed text-brand-dark/80 ">
             Discover our curated selection of high-quality

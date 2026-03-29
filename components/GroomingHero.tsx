@@ -13,7 +13,7 @@ export const GroomingHero = () => {
               <Sparkles size={14} />
               <span>Full-Service Care</span>
             </div>
-            <h1 className="mb-8 font-heading text-5xl font-bold leading-tight text-brand-dark lg:text-7xl">
+            <h1 className="mb-8 font-heading text-3xl font-bold leading-wide text-brand-dark lg:text-4xl">
               Stress-Free Grooming for Your <span className="text-brand-green italic">Best Friend</span>
             </h1>
             <p className="mb-10 text-lg leading-relaxed text-gray-600">
@@ -30,7 +30,7 @@ export const GroomingHero = () => {
             </div>
           </div>
           
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[3rem] shadow-2xl">
+          <div className="relative aspect-4/5 w-full overflow-hidden rounded-[3rem] shadow-2xl">
             <Image
               src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=800"
               alt="Groomed happy dog"

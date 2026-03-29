@@ -47,7 +47,7 @@ export const GroomingServices = () => {
     <section className="bg-white py-20 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-16">
         <div className="mb-16 flex flex-col items-center gap-6 text-center">
-          <h2 className="font-heading text-4xl font-bold text-brand-dark lg:text-5xl">Our Care Packages</h2>
+          <h2 className="font-heading text-3xl font-bold text-brand-dark lg:text-4xl">Our Care Packages</h2>
           <p className="max-w-2xl text-lg text-gray-500">
             Choose the perfect level of care for your companion. All our packages use organic, hypoallergenic products.
           </p>

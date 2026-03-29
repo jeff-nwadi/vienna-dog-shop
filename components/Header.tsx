@@ -4,8 +4,12 @@ import { Search, ShoppingBag, User, Menu, X, ChevronDown } from 'lucide-react'
 import { Dog } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useCartStore } from '@/store/useCartStore'
 
 export const Header = () => {
+  const { items } = useCartStore()
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0)
+  
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isGroomingOpen, setIsGroomingOpen] = useState(false)
   const [isShopOpen, setIsShopOpen] = useState(false)
@@ -39,7 +43,7 @@ export const Header = () => {
 
   return (
     <header className="relative z-50 w-full bg-white">
-      <div className="flex items-center justify-between px-6 py-4 md:px-16 md:py-8 font-heading">
+      <div className="flex items-center justify-between px-6 py-4 md:px-16 md:py-8 font-heading border-b border-gray-50">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 text-brand-green">
           <Dog className="text-brand-gold" />
@@ -100,19 +104,21 @@ export const Header = () => {
         {/* Icons & Mobile Toggle */}
         <div className="flex items-center gap-4 text-brand-dark md:gap-8">
           <div className="hidden items-center gap-6 md:flex">
-            <button className="transition-transform hover:scale-110">
+            <button className="transition-transform hover:scale-110 cursor-pointer">
               <Search size={20} />
             </button>
-            <button className="transition-transform hover:scale-110">
+            <Link href="/login" className="transition-transform hover:scale-110">
               <User size={20} />
-            </button>
+            </Link>
           </div>
-          <button className="relative transition-transform hover:scale-110">
+          <Link href="/cart" className="relative transition-transform hover:scale-110">
             <ShoppingBag size={20} />
-            <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-brand-green text-[10px] text-white font-sans">
-              2
-            </span>
-          </button>
+            {itemCount > 0 && (
+              <span className="absolute -right-2 -top-2 flex h-4 w-4 items-center justify-center rounded-full bg-brand-green text-[10px] text-white font-sans">
+                {itemCount}
+              </span>
+            )}
+          </Link>
           
           {/* Mobile Menu Button */}
           <button 
