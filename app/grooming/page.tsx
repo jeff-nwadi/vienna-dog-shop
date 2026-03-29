@@ -1,4 +1,5 @@
 'use client'
+import { Suspense } from 'react'
 
 import { ShopSidebar } from "@/components/ShopSidebar"
 import { ProductCard } from "@/components/ShopGrid"
@@ -25,7 +26,9 @@ export default function GroomingProductsPage() {
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-6 py-12 md:px-16 lg:flex-row lg:py-20">
         {/* Sidebar */}
         <aside className="w-full lg:w-[280px]">
-          <ShopSidebar />
+          <Suspense fallback={<div className="h-64 animate-pulse rounded-2xl bg-gray-100" />}>
+            <ShopSidebar />
+          </Suspense>
         </aside>
 
         {/* Product Grid */}

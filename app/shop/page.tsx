@@ -13,7 +13,9 @@ export default function ShopPage() {
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
             {/* Sidebar - Desktop */}
             <div className="hidden lg:block">
-              <ShopSidebar />
+              <Suspense fallback={<div className="h-64 w-[280px] animate-pulse rounded-2xl bg-gray-100" />}>
+                <ShopSidebar />
+              </Suspense>
             </div>
             
             {/* Main Content Area */}
@@ -27,7 +29,9 @@ export default function ShopPage() {
             {/* Sidebar - Mobile/Tablet (Optional: could be a drawer) */}
             <div className="lg:hidden">
               <h3 className="mb-6 font-bold text-brand-dark">Filters</h3>
-              <ShopSidebar />
+              <Suspense fallback={<div className="h-64 animate-pulse rounded-2xl bg-gray-100" />}>
+                <ShopSidebar />
+              </Suspense>
             </div>
           </div>
         </div>
