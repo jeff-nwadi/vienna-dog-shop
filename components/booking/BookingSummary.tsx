@@ -25,7 +25,7 @@ export const BookingSummary = () => {
   }
 
   return (
-    <div className="sticky top-10 rounded-[40px] bg-white p-10 shadow-2xl shadow-gray-200/50 border border-gray-50 lg:w-[400px]">
+    <div className="sticky top-10 rounded-[10px] bg-white p-10 shadow-2xl shadow-gray-200/50 border border-gray-50 lg:w-[400px]">
       <h3 className="mb-10 text-xl font-bold text-brand-dark">Booking Summary</h3>
       
       <div className="flex flex-col gap-6 border-b border-gray-100 pb-8">

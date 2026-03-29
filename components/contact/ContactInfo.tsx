@@ -20,12 +20,12 @@ export const ContactInfo = () => {
   return (
     <div className="flex flex-col gap-10">
       {/* Contact Cards */}
-      <div className="flex flex-col gap-4 rounded-[2.5rem] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC]">
+      <div className="flex flex-col gap-4 rounded-[10px] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC]">
         {contactItems.map((item, idx) => {
           const Icon = item.icon
           return (
             <div key={idx} className="flex items-center gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-brand-green shadow-sm">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-white text-brand-green shadow-sm">
                 <Icon size={18} />
               </div>
               <span className="text-[13px] md:text-[14px] font-medium text-brand-dark tracking-wide leading-relaxed">
@@ -37,7 +37,7 @@ export const ContactInfo = () => {
       </div>
 
       {/* Map Section */}
-      <div className="relative aspect-video w-full overflow-hidden rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-100/30">
+      <div className="relative aspect-video w-full overflow-hidden rounded-[10px] border border-gray-100 shadow-xl shadow-gray-100/30">
         <Image
           src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&q=80&w=800"
           alt="Vienna Map stylized"
@@ -54,7 +54,7 @@ export const ContactInfo = () => {
       </div>
 
       {/* Business Hours */}
-      <div className="rounded-[2.5rem] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC] md:p-10">
+      <div className="rounded-[10px] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC] md:p-10">
         <h3 className="mb-6 text-[14px] md:text-[16px] font-bold text-brand-dark uppercase tracking-widest">Business Hours</h3>
         <div className="flex flex-col gap-4">
           {businessHours.map((h, idx) => (

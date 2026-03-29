@@ -22,7 +22,7 @@ export default function CartPage() {
           <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-16">
             
             {/* Product List */}
-            <div className="flex-1 rounded-[2.5rem] border border-gray-100 bg-white p-6 shadow-sm md:p-10">
+            <div className="flex-1 rounded-[10px] border border-gray-100 bg-white p-6 shadow-sm md:p-10">
               <div className="hidden border-b border-gray-50 bg-[#F9F3DC]/30 p-4 md:flex items-center text-[12px] font-bold uppercase tracking-widest text-brand-dark mb-8">
                 <span className="flex-1">Product</span>
                 <span className="w-32 text-center">Quantity</span>
@@ -59,7 +59,7 @@ export default function CartPage() {
                       {/* Quantity Control */}
                       <div className="flex w-full items-center justify-between md:w-32 md:justify-center">
                         <span className="text-[12px] font-bold text-brand-dark md:hidden uppercase tracking-widest">Quantity</span>
-                        <div className="flex items-center gap-4 rounded-xl border border-gray-100 bg-gray-50 px-3 py-2">
+                        <div className="flex items-center gap-4 rounded-[10px] border border-gray-100 bg-gray-50 px-3 py-2">
                           <button 
                             onClick={() => updateQuantity(item.id, -1)}
                             className="text-gray-400 transition-colors hover:text-brand-green"
@@ -101,7 +101,7 @@ export default function CartPage() {
 
             {/* Sidebar Summary */}
             <div className="lg:w-[420px]">
-              <div className="rounded-[2.5rem] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC] md:p-10">
+              <div className="rounded-[10px] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC] md:p-10">
                 <h2 className="mb-8 font-heading text-[16px] font-bold uppercase tracking-widest text-brand-dark">
                   Order Summary
                 </h2>
@@ -128,7 +128,7 @@ export default function CartPage() {
 
                 <Link 
                   href="/checkout"
-                  className="mt-10 flex h-14 w-full items-center justify-center rounded-2xl bg-brand-green font-bold text-white transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-brand-green/10"
+                  className="mt-10 flex h-14 w-full items-center justify-center rounded-[10px] bg-brand-green font-bold text-white transition-all hover:brightness-110 active:scale-95"
                 >
                   Proceed to Checkout
                 </Link>

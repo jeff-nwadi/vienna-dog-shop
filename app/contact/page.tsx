@@ -11,7 +11,7 @@ export default function ContactPage() {
             <h1 className="mb-4 font-heading text-2xl font-bold tracking-wide text-brand-dark md:text-3xl lg:text-4xl">
               Get in Touch
             </h1>
-            <p className="text-[14px] md:text-lg leading-relaxed text-gray-500">
+            <p className="text-[14px] md:text-lg leading-relaxed w-3/4 md:w-1/2 text-gray-500">
               Questions about products, grooming appointments, or your order? We'd love to help.
             </p>
           </div>

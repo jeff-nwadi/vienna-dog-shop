@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function LoginPage() {
   return (
     <div className="flex min-h-[90vh] items-center justify-center bg-gray-50/50 px-6 py-12 md:px-16 md:py-24">
-      <div className="flex w-full max-w-5xl flex-col overflow-hidden rounded-[2.5rem] bg-white shadow-sm lg:flex-row">
+      <div className="flex w-full max-w-5xl flex-col overflow-hidden rounded-[10px] bg-white shadow-sm lg:flex-row">
         
         {/* Left Side: Login */}
         <div className="flex-1 p-8 md:p-12 lg:p-16">

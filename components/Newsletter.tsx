@@ -4,7 +4,7 @@ export const Newsletter = () => {
   return (
     <section className="px-6 py-12 md:px-16">
       <div className="mx-auto max-w-7xl">
-        <div className="rounded-[40px] bg-brand-green p-10 md:p-16 lg:p-20 text-white relative overflow-hidden">
+        <div className="rounded-[10px] bg-brand-green p-10 md:p-16 lg:p-20 text-white relative overflow-hidden">
           {/* Subtle Decorative elements could go here */}
           
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">

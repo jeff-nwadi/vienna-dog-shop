@@ -21,7 +21,7 @@ export default function CheckoutPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
       {/* Checkout Navbar / Header */}
-      <nav className="border-b border-gray-100 bg-white px-6 py-6 md:px-16 md:py-8 font-heading">
+      <nav className="bg-white px-6 py-6 md:px-16 md:py-8 font-heading">
         <div className="mx-auto flex max-w-7xl items-center justify-center">  
           {/* Progress Stepper */}
           <div className="hidden items-center gap-4 md:flex">
@@ -51,7 +51,7 @@ export default function CheckoutPage() {
             {/* Form Section */}
             <div className="flex-1 space-y-16">
               {/* 1. Billing & Shipping */}
-              <div className="rounded-[2.5rem] border border-gray-100 bg-white p-8 shadow-sm md:p-12">
+              <div className="rounded-[10px] border border-gray-100 bg-white p-8 shadow-sm md:p-12">
                 <h2 className="mb-10 font-heading text-[18px] font-bold tracking-wide text-brand-dark md:text-xl">
                   Billing & Shipping
                 </h2>
@@ -62,7 +62,7 @@ export default function CheckoutPage() {
                     <input 
                       type="text" 
                       placeholder="Sarah"
-                      className="h-12 w-full rounded-2xl border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
+                      className="h-12 w-full rounded-[10px] border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
@@ -70,7 +70,7 @@ export default function CheckoutPage() {
                     <input 
                       type="text" 
                       placeholder="Jenkins"
-                      className="h-12 w-full rounded-2xl border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
+                      className="h-12 w-full rounded-[10px] border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
                     />
                   </div>
                   <div className="flex flex-col gap-3 md:col-span-2">
@@ -78,7 +78,7 @@ export default function CheckoutPage() {
                     <input 
                       type="email" 
                       placeholder="sarah@example.com"
-                      className="h-12 w-full rounded-2xl border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
+                      className="h-12 w-full rounded-[10px] border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
@@ -86,7 +86,7 @@ export default function CheckoutPage() {
                     <input 
                       type="tel" 
                       placeholder="+43 1 234 5678"
-                      className="h-12 w-full rounded-2xl border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
+                      className="h-12 w-full rounded-[10px] border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
@@ -94,7 +94,7 @@ export default function CheckoutPage() {
                     <input 
                       type="text" 
                       placeholder="123 Bark Avenue"
-                      className="h-12 w-full rounded-2xl border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
+                      className="h-12 w-full rounded-[10px] border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
@@ -102,7 +102,7 @@ export default function CheckoutPage() {
                     <input 
                       type="text" 
                       placeholder="Vienna"
-                      className="h-12 w-full rounded-2xl border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
+                      className="h-12 w-full rounded-[10px] border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
@@ -110,14 +110,14 @@ export default function CheckoutPage() {
                     <input 
                       type="text" 
                       placeholder="1010"
-                      className="h-12 w-full rounded-2xl border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
+                      className="h-12 w-full rounded-[10px] border-none bg-gray-50 px-5 text-[14px] text-brand-dark outline-none placeholder:text-gray-300 focus:ring-2 focus:ring-brand-green/20"
                     />
                   </div>
                 </form>
               </div>
 
               {/* 2. Payment Method */}
-              <div className="rounded-[2.5rem] border border-gray-100 bg-white p-8 shadow-sm md:p-12">
+              <div className="rounded-[10px] border border-gray-100 bg-white p-8 shadow-sm md:p-12">
                 <h2 className="mb-10 font-heading text-[18px] font-bold tracking-wide text-brand-dark md:text-xl">
                   Payment Method
                 </h2>
@@ -125,7 +125,7 @@ export default function CheckoutPage() {
                 <div className="flex flex-col gap-4">
                   <button 
                     onClick={() => setPaymentMethod('card')}
-                    className={`flex h-20 items-center justify-between rounded-3xl border-2 px-8 transition-all ${
+                    className={`flex h-20 items-center justify-between rounded-[10px] border-2 px-8 transition-all ${
                       paymentMethod === 'card' ? 'border-brand-green bg-[#F9F3DC]/30' : 'border-gray-50 bg-gray-50'
                     }`}
                   >
@@ -158,7 +158,7 @@ export default function CheckoutPage() {
 
             {/* Order Summary Sidebar */}
             <div className="lg:w-[480px]">
-              <div className="rounded-[2.5rem] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC] md:p-12">
+              <div className="rounded-[10px] bg-[#F9F3DC]/40 p-8 border border-[#F9F3DC] md:p-12">
                 <h2 className="mb-8 font-heading text-[18px] font-bold tracking-wide text-brand-dark">
                   Your Order
                 </h2>
@@ -166,7 +166,7 @@ export default function CheckoutPage() {
                 <div className="mb-8 space-y-6">
                   {items.map((item) => (
                     <div key={item.id} className="flex gap-4">
-                      <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-white shadow-sm">
+                      <div className="h-20 w-20 shrink-0 overflow-hidden rounded-[10px] bg-white shadow-sm">
                         <Image
                           src={item.image}
                           alt={item.name}
@@ -204,7 +204,7 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                <button className="mt-12 flex h-14 w-full cursor-pointer items-center justify-center rounded-2xl bg-brand-green font-bold text-white transition-all hover:brightness-110 active:scale-95 shadow-lg shadow-brand-green/10">
+                <button className="mt-12 flex h-14 w-full cursor-pointer items-center justify-center rounded-[10px] bg-brand-green font-bold text-white transition-all hover:brightness-110 active:scale-95">
                   Place Order
                 </button>
               </div>

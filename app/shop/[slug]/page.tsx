@@ -118,7 +118,7 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           {/* Gallery Side */}
           <div className="flex flex-col gap-6">
-            <div className="relative aspect-square overflow-hidden rounded-[32px] bg-gray-50 border border-gray-100">
+            <div className="relative aspect-square overflow-hidden rounded-[10px] bg-gray-50 border border-gray-100">
               <Image
                 src={images[activeImage]}
                 alt={product.name}
@@ -210,7 +210,7 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Features/Trust */}
-            <div className="mt-4 flex flex-col gap-4 rounded-[24px] bg-[#F9F3DC]/40 p-6 md:p-8">
+            <div className="mt-4 flex flex-col gap-4 rounded-[10px] bg-[#F9F3DC]/40 p-6 md:p-8">
               <div className="flex items-center gap-3">
                 <Truck className="text-brand-green" size={20} />
                 <span className="text-[14px] text-brand-dark/80">Free shipping over <strong>$50</strong></span>

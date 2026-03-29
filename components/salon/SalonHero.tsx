@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 export const SalonHero = () => {
   return (
-    <section className="relative h-[400px] w-full overflow-hidden rounded-[32px]">
+    <section className="relative h-[400px] w-full overflow-hidden rounded-[10px]">
       <Image
         src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&q=80&w=1200"
         alt="Grooming Salon"
